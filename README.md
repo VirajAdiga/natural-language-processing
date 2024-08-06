@@ -1,1 +1,1 @@
-# semantic-search-gen-ai
+# natural-language-processing
