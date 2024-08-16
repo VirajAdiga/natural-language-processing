@@ -23,4 +23,26 @@ outputs = model(**inputs)
 
 # 3. Postprocessing the output
 predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
-print(predictions)
+# print(predictions)
+
+
+"""
+Tokenization has two parts
+1. Converting to tokens
+2. Mapping to IDs
+"""
+
+text = "Dhoni is one of the world's greatest cricketer"
+tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
+
+# 1. Converting to tokens
+tokens = tokenizer.tokenize(text)
+print(tokens)
+
+# 2. Mapping to IDs
+ids = tokenizer.convert_tokens_to_ids(tokens)
+print(ids)
+
+# Decoding
+original_text = tokenizer.decode(ids)
+print(original_text)
